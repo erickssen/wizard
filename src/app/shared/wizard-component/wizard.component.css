@@ -1,0 +1,19 @@
+.container{
+  margin-top: 200px;
+}
+
+.mat-progress-bar {
+  padding-bottom: 10px;
+}
+
+
+ mat-tab-group.wizard-tabs .mat-tab-header {
+  display: none !important;
+  color:white;
+}
+
+
+.header{
+  margin-left: 38%;
+  padding: 20px;
+}

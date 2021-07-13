@@ -1,0 +1,38 @@
+<h2>Enter the reciver's address:</h2>
+<form [formGroup]="reciverForm" class="example-form">
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input formControlName="name" name="name" matInput>
+    </mat-form-field></td>
+  </tr></table>
+
+  <p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Street</mat-label>
+      <textarea formControlName="street" name="street" matInput></textarea>
+    </mat-form-field>
+  </p>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>City</mat-label>
+      <input  formControlName="city" name="city" matInput>
+    </mat-form-field></td>
+
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>State</mat-label>
+      <input formControlName="state" name="state" matInput>
+    </mat-form-field></td>
+
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Zip</mat-label>
+      <input type="number" formControlName="zip" name="zip" matInput #postalCode maxlength="5" value="94043">
+      <mat-hint align="end">{{postalCode.value.length}}</mat-hint>
+    </mat-form-field></td>
+  </tr></table>
+
+    <button mat-raised-button color="primary" (click)="onClickStep('prev')">Prev</button>
+    <button mat-raised-button color="primary" (click)="onClickStep('next')" [disabled]="!reciverForm.valid">Next</button>
+  </form>

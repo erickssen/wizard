@@ -1,0 +1,15 @@
+
+<h2>Enter the weight:</h2>
+<form [formGroup]="weightForm" class="example-form">
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Weight</mat-label>
+      <input matInput type="number" formControlName="weight" name="weight"  maxlength="5" value="1">
+      <!-- <input matInput type="number" formControlName="shippingOption" name="shippingOption"  maxlength="5" value="1"> -->
+      <mat-hint align="end">lbs</mat-hint>
+    </mat-form-field><br>
+
+    <button mat-raised-button color="primary" (click)="onClickStep('back')">Back</button>
+    <button mat-raised-button color="primary"  (click)="onClickStep('next')" [disabled]="!weightForm.valid">Next</button>
+
+  </form>

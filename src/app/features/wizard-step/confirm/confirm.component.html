@@ -1,0 +1,41 @@
+<section fxLayout="row" fxFlex="100%">
+  <div fxLayout="column" fxFlex=100%>
+    <h1>Confirm your shipping details</h1>
+
+    <h3>Receiver Details</h3>
+    <mat-divider></mat-divider>
+    <div *ngIf="contextConfirmObj.to">
+      <p>Name: {{contextConfirmObj.to.name}}</p>
+      <p>Street: {{contextConfirmObj.to.street}}</p>
+      <p>City: {{contextConfirmObj.to.city}}</p>
+      <p>State: {{contextConfirmObj.to.state}}</p>
+      <p>Zip: {{contextConfirmObj.to.zip}}</p>
+    </div>
+    <div *ngIf="!contextConfirmObj.to" align=center>
+      <p>No Information</p>
+    </div>
+
+    <h3>Sender Details</h3>
+    <mat-divider></mat-divider>
+    <div *ngIf="contextConfirmObj.from">
+      <p>Name: {{contextConfirmObj.from.name}}</p>
+      <p>Street: {{contextConfirmObj.from.street}}</p>
+      <p>City: {{contextConfirmObj.from.city}}</p>
+      <p>State: {{contextConfirmObj.from.state}}</p>
+      <p>Zip: {{contextConfirmObj.from.zip}}</p>
+    </div>
+    <div *ngIf="!contextConfirmObj.from" align=center>
+      <p>No Information</p>
+    </div>
+
+    <h2>Shipping Details</h2>
+    <mat-divider></mat-divider>
+    <p>Shipping Rate: {{shippingRate | currency}}</p>
+    <p>Weight: {{ contextConfirmObj.shipping.weight }}</p>
+    <p>Shipping Cost: {{shippingCost | currency}}</p>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+    </div>
+  </div>
+</section>
+<button mat-raised-button color="primary" (click)="onClickStep('prev')">Prev</button>
+<button mat-raised-button color="primary" (click)="onClickStep('confirm')">confirm</button>

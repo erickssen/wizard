@@ -1,0 +1,13 @@
+<h2>Enter the shipping Option:</h2>
+<form [formGroup]="shippingOptionForm" class="example-form">
+    <div div class="example-container">
+      <mat-radio-group formControlName="shippingOption">
+        <mat-radio-button value="1">Ground</mat-radio-button>
+        <mat-radio-button value="2">Priority</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="bottons-container">
+        <button  mat-raised-button color="primary" (click)="onClickStep('back')">Back</button>
+        <button  mat-raised-button color="primary" (click)="onClickStep('next')" [disabled]="!shippingOptionForm.valid">Next</button>
+    </div>
+</form>

@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { ShippingLabelMakerComponent  } from './features/shipping-label-maker/shipping-label-maker.component';
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+  const routes: Routes = [
+    {
+      path:'label', component: ShippingLabelMakerComponent
+    },
+    {
+      path:'',
+      redirectTo: 'label',
+      pathMatch:'full'
+    }
+  ];
+  @NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }

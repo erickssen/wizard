@@ -1,5 +1,5 @@
-<section fxLayout="row" fxFlex="100%">
-  <div fxLayout="column" fxFlex=100%>
+<section >
+  <div >
     <h1>Confirm your shipping details</h1>
 
     <h3>Receiver Details</h3>
@@ -11,7 +11,7 @@
       <p>State: {{contextConfirmObj.to.state}}</p>
       <p>Zip: {{contextConfirmObj.to.zip}}</p>
     </div>
-    <div *ngIf="!contextConfirmObj.to" align=center>
+    <div *ngIf="!contextConfirmObj.to" >
       <p>No Information</p>
     </div>
 
@@ -24,7 +24,7 @@
       <p>State: {{contextConfirmObj.from.state}}</p>
       <p>Zip: {{contextConfirmObj.from.zip}}</p>
     </div>
-    <div *ngIf="!contextConfirmObj.from" align=center>
+    <div *ngIf="!contextConfirmObj.from" >
       <p>No Information</p>
     </div>
 
@@ -33,7 +33,7 @@
     <p>Shipping Rate: {{shippingRate | currency}}</p>
     <p>Weight: {{ contextConfirmObj.shipping.weight }}</p>
     <p>Shipping Cost: {{shippingCost | currency}}</p>
-    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <div >
     </div>
   </div>
 </section>

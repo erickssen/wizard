@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,8 @@ import { ReciverAddressComponent } from './features/wizard-step/reciver-address/
 import { ConfirmComponent } from './features/wizard-step/confirm/confirm.component';
 import { ShippingComponent } from './features/wizard-step/shipping/shipping.component';
 import { SharedModule } from './shared/shared.module';
+import { AuthComponent } from './auth/auth.component';
+import { AuthInterceptorService } from './auth/auth-interceptors';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { SharedModule } from './shared/shared.module';
     ReciverAddressComponent,
     ConfirmComponent,
     ShippingComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,10 +49,18 @@ import { SharedModule } from './shared/shared.module';
     MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+
+    HttpClientModule
   ],
   exports:[],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

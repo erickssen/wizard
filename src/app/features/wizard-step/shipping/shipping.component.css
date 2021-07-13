@@ -17,9 +17,7 @@
   margin-top: 36px;
 }
 
-button{
-  margin:10px;
-}
+
 
 h2{
   padding: 20px;
@@ -33,4 +31,9 @@ mat-radio-group{
 
 .mat-radio-button{
   padding:10px;
+}
+
+button{
+  margin:10px;
+    float: left;
 }

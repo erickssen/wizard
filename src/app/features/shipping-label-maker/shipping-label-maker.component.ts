@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ShippingInfo } from '../../shared/shipping-info.model'
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-shipping-label-maker',
@@ -30,16 +31,18 @@ export class ShippingLabelMakerComponent implements OnInit  {
     }
   )
 
-  constructor(){}
+  constructor(private authService:AuthService){}
 
   ngOnInit(): void {}
 
-  // prints the wizardContext object after successfully runing through the wizard
+  // console logs the wizardContext object after successfully runing through the wizard
   onComplete(shippingInfo:ShippingInfo){
       this.wizardContext = shippingInfo;
       console.log(this.wizardContext)
   }
 
-
+  onLogout(){
+    this.authService.logout();
+  }
 
 }

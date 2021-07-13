@@ -15,4 +15,10 @@ td {
 
 button{
   margin:10px;
+    float: left;
+}
+
+h2{
+  text-align: left;
+  padding: 20px;
 }

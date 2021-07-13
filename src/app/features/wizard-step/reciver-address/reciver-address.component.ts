@@ -36,8 +36,6 @@ export class ReciverAddressComponent implements OnInit {
     }else{
       this.router.navigate(['label'], {queryParams: {index:0, currentStep: 20 }});
     }
-    console.log('context after---------->', this.contextToObj)
-    console.log('Service.wizardContext receiver---------->', this.shippingLabelService.wizardContext)
   }
 
 }

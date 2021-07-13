@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, DoCheck } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ShippingLabelService } from '../../../services/shipping-label.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShippingInfo } from '../../../shared/shipping-info.model'
@@ -8,23 +8,19 @@ import { ShippingInfo } from '../../../shared/shipping-info.model'
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.css']
 })
-export class ConfirmComponent implements OnInit, DoCheck {
+export class ConfirmComponent implements OnInit {
 
+  @Output()contextInfoEvent = new EventEmitter<ShippingInfo>()
   @Input()contextConfirmObj!: ShippingInfo;
   shippingCost:number = 0;
   shippingRate:number = 0.14;
 
-  constructor(private shippingLabelService:ShippingLabelService, private activatedRoute: ActivatedRoute, private router:Router) { }
+  constructor(private shippingLabelService:ShippingLabelService,
+    private activatedRoute: ActivatedRoute,
+    private router:Router) { }
 
-  ngDoCheck(){
-    console.log('weight DoChange ++++++++++++++', this.contextConfirmObj.shipping.weight)
-    // console.log('weight DoChange ++++++++++++++', this.contextConfirmObj.from.zip)
-    //
-    // console.log('cost ++++++++++++++', this.shippingCost)
-  }
-
+  //calculate the the shipping cost if at last step
   ngOnInit(): void {
-      console.log('weight ++++++++++++++', this.contextConfirmObj.shipping.weight)
       this.activatedRoute.queryParams.subscribe(params => {
       if (params['index'] === '3') {
         this.calculateShippingCost()
@@ -39,13 +35,15 @@ calculateShippingCost(){
     (shippingOption === 1 ? 1 : 1.5);
   }
 
-  confirm(){}
+  //on confirm emit the context object to the parent wizardComponent
+  onConfirm(){
+    console.log('this.contextConfirmObj------------->', this.contextConfirmObj)
+    this.contextInfoEvent.emit(this.contextConfirmObj)
+  }
 
+  //return to previous step
   onClickStep(action:string){
-
-    if(action === 'confirm'){
-      this.router.navigate(['label'], { queryParams: { index: 3, currentStep: 100 }});
-  }else{
+    if(action === 'prev'){
     this.router.navigate(['label'], {queryParams: {index:2, currentStep: 80 }});
   }
 

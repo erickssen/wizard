@@ -2,8 +2,6 @@ import { Component, OnInit, Directive, Input, ContentChildren,  QueryList, After
 
 import { SenderAddressComponent } from './sender-address/sender-address.component';
 import { ReciverAddressComponent } from './reciver-address/reciver-address.component';
-import { WeightComponent } from './weight/weight.component';
-import { ShippingOptionComponent } from './shipping-option/shipping-option.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 
 

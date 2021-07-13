@@ -20,8 +20,6 @@ import { WizardComponent } from './shared/wizard-component/wizard.component';
 import { WizardStepComponent } from './features/wizard-step/wizard-step.component';
 import { SenderAddressComponent } from './features/wizard-step/sender-address/sender-address.component';
 import { ReciverAddressComponent } from './features/wizard-step/reciver-address/reciver-address.component';
-import { WeightComponent } from './features/wizard-step/weight/weight.component';
-import { ShippingOptionComponent } from './features/wizard-step/shipping-option/shipping-option.component';
 import { ConfirmComponent } from './features/wizard-step/confirm/confirm.component';
 import { ShippingComponent } from './features/wizard-step/shipping/shipping.component';
 
@@ -35,8 +33,6 @@ import { ShippingComponent } from './features/wizard-step/shipping/shipping.comp
     WizardStepComponent,
     SenderAddressComponent,
     ReciverAddressComponent,
-    WeightComponent,
-    ShippingOptionComponent,
     ConfirmComponent,
     ShippingComponent,
 

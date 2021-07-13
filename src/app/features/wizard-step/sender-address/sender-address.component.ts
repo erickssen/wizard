@@ -48,8 +48,6 @@ export class SenderAddressComponent implements OnInit  {
       this.router.navigate(['label'], { queryParams: { index: 1, currentStep: 40 }});
     }
     this.shippingLabelService.wizardContext = this.contextFromObj;
-    console.log('context = Form---------->', this.contextFromObj)
-    console.log('Service.wizardContext---------->', this.shippingLabelService.wizardContext)
   }
 
 

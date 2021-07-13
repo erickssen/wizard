@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WizardData } from '../../shared/wizard-data';
 import { ShippingInfo } from '../../shared/shipping-info.model'
-// import { ShippingOption } from '../../shared/shipping-info.model'
 import { ShippingLabelService } from '../../services/shipping-label.service';
 
 
@@ -41,11 +39,15 @@ export class ShippingLabelMakerComponent implements OnInit  {
 
 
   ngOnInit(): void {
-    this.shippingInfo = this.shippingLabelService.wizardContext;
-    console.log('ShippingLabelMakerComponent shipping info object from service >>>>>>>>>>>>>>>>>> ', this.shippingInfo)
+    // this.shippingInfo = this.shippingLabelService.wizardContext;
   }
 
   onAction(): void {
+  }
+
+  onConfirm(shippingInfo:ShippingInfo){
+
+      console.log('shippingInfo from wizard component @Output()chld>>>>>>>>>>>>>>', shippingInfo)
   }
 
 

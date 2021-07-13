@@ -3,11 +3,9 @@
    <div class="row">
          <div class="col-12">
             <mat-card class="shipping-card " >
-
                 <div class="header">
                   <app-header> {{ header }} </app-header>
                 </div>
-
                 <mat-card-content>
                   <mat-progress-bar mode="determinate" [value]="currentStep"></mat-progress-bar>
                   <mat-tab-group mat-strech-tabs [selectedIndex]="step">
@@ -20,29 +18,11 @@
                     <mat-tab>
                          <app-shipping [contextShippingtObj]="context"></app-shipping>
                     </mat-tab>
-                    <!-- <mat-tab>
-                         <app-shipping-option [contextOptionObj]="context"></app-shipping-option>
-                    </mat-tab> -->
                     <mat-tab>
-                         <app-confirm [contextConfirmObj]="context"></app-confirm>
+                         <app-confirm [contextConfirmObj]="context"  (contextInfoEvent)="emitContext($event)" ></app-confirm>
                     </mat-tab>
                   </mat-tab-group>
                 </mat-card-content>
-
             </mat-card>
   </div>
 </div>
-
-
-
-
-
-<!-- <app-wizard-step>
-
-    <app-sender-address  id="1"></app-sender-address>
-    <app-reciver-address id="2"></app-reciver-address>
-    <app-weight  id="3"></app-weight>
-    <app-shipping-option id="4"></app-shipping-option>
-    <app-confirm id="5"></app-confirm>
-
-</app-wizard-step> -->

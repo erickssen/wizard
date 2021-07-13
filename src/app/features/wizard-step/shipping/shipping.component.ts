@@ -38,7 +38,6 @@ export class ShippingComponent implements OnInit {
   }
 
   onClickStep(action:string){
-    console.log('weight weight weight weight weight', this.shippingForm.value)
     this.contextShippingtObj.shipping = this.shippingForm.value
     if(action === 'next'){
       this.router.navigate(['label'], { queryParams: { index: 3, currentStep: 100 }});
@@ -46,8 +45,6 @@ export class ShippingComponent implements OnInit {
       this.router.navigate(['label'], {queryParams: {index:1, currentStep: 40 }});
     }
     this.shippingLabelService.wizardContext = this.contextShippingtObj;
-    console.log('context = weight @---------->', this.contextShippingtObj)
-    console.log('Service.wizardContext @---------->', this.shippingLabelService.wizardContext)
   }
 
 

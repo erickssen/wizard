@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { WizardComponent } from './wizard-component/wizard.component';
-// import { HeaderComponent } from './header/header.component';
+import { MatCardModule } from '@angular/material/card';
 
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
-    // WizardComponent,
-    // HeaderComponent
+    HeaderComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatCardModule,
+  ],
+  exports:[
+    HeaderComponent,
+    CommonModule,
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+
+
+
+}

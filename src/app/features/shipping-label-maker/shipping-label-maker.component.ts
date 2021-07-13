@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ShippingInfo } from '../../shared/shipping-info.model'
-import { ShippingLabelService } from '../../services/shipping-label.service';
-
 
 @Component({
   selector: 'app-shipping-label-maker',
@@ -10,8 +8,6 @@ import { ShippingLabelService } from '../../services/shipping-label.service';
   styleUrls: ['./shipping-label-maker.component.css']
 })
 export class ShippingLabelMakerComponent implements OnInit  {
-
-  shippingInfo!:ShippingInfo;
 
   wizardContext: ShippingInfo = new ShippingInfo(
     {
@@ -34,21 +30,16 @@ export class ShippingLabelMakerComponent implements OnInit  {
     }
   )
 
-  constructor(private shippingLabelService:ShippingLabelService){}
+  constructor(){}
 
+  ngOnInit(): void {}
 
-
-  ngOnInit(): void {
-    // this.shippingInfo = this.shippingLabelService.wizardContext;
+  // prints the wizardContext object after successfully runing through the wizard
+  onComplete(shippingInfo:ShippingInfo){
+      this.wizardContext = shippingInfo;
+      console.log(this.wizardContext)
   }
 
-  onAction(): void {
-  }
-
-  onConfirm(shippingInfo:ShippingInfo){
-
-      console.log('shippingInfo from wizard component @Output()chld>>>>>>>>>>>>>>', shippingInfo)
-  }
 
 
 }

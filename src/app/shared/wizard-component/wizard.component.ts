@@ -4,13 +4,9 @@ import { Component,
   Input,
   Output,
   ContentChild,
-  ContentChildren,
-  QueryList,
   EventEmitter } from '@angular/core';
 
 import { HeaderComponent } from '../header/header.component';
-import { WizardStepComponent } from '../../features/wizard-step/wizard-step.component';
-import { WizardData } from '../wizard-data';
 import { ShippingInfo } from '../shipping-info.model';
 
 
@@ -19,10 +15,9 @@ import { ShippingInfo } from '../shipping-info.model';
   templateUrl: './wizard.component.html',
   styleUrls: ['./wizard.component.css']
 })
-export class WizardComponent implements OnInit, WizardData {
+export class WizardComponent implements OnInit {
 
 @ContentChild(HeaderComponent) header!: HeaderComponent;
-@ContentChildren(WizardStepComponent) steps!: QueryList<WizardStepComponent>;
 @Input()context!: ShippingInfo;
 @Output() complete = new EventEmitter<ShippingInfo>();
 
@@ -49,11 +44,8 @@ export class WizardComponent implements OnInit, WizardData {
     });
   }
 
-  onAction(){}
-
   emitContext(ShippingInfo:any){
     if(this.context == ShippingInfo){
-      console.log('obj----------------------->>>>>', ShippingInfo)
       this.complete.emit(ShippingInfo)
     }
 

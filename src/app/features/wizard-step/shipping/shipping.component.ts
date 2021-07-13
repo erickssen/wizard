@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 import { WizardAction } from '../../../shared/wizard-data';
-import { WizardData } from '../../../shared/wizard-data';
-import { ShippingInfo } from '../../../shared/shipping-info.model'
+import { ShippingInfo } from '../../../shared/shipping-info.model';
 import { ShippingLabelService } from '../../../services/shipping-label.service';
 
 @Component({

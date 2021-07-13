@@ -1,27 +1,21 @@
 # ShippingLabelMaker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+This project was generated with version 12.0.4.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## The App Logic
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+At the top of the app is the ShippingLabelMaker component, it passes the context object its child component the WizardComponent.  
+Each step is a child component of the WizardComponent and they modify the context object as the user goes through the steps.  I used Angular material taps and move the taps with the router to navigate back and forward through the steps. I also injected the step's index and the progress of the
+progress bar to the queryParams object and use it to keep track of the steps and navigate the wizard. The state of the context object in maintained
+on a variable in the ShippingLabelService.
+At the last step the shipping cost is calculated and a label is shown on the view with the user's information the context object now has.
+By clicking confirm on the printed label the completed object is emitted back to the wizard and finally the ShippingLabelMaker has the
+final object.
